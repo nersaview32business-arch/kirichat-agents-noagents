@@ -71,10 +71,9 @@ export const Sidebar = ({ isCollapsed }: SidebarProps): JSX.Element => {
                   {!isCollapsed && (
                     <Button
                       variant="ghost"
-                      className={`absolute left-0 top-0 w-full h-[36px] rounded-[8px] justify-start pl-[31px] pr-2.5 py-1 ${
-                        item.active ? "bg-white border border-[#E4E4E7] shadow-none" : ""
+                      className={`absolute left-0 top-0 w-full h-[36px] rounded-[10px] justify-start pl-[31px] pr-2.5 py-1 ${
+                        item.active ? "bg-white border border-[#E5E7EB] shadow-sm" : ""
                       }`}
-                      style={item.active ? { borderWidth: '1px' } : undefined}
                       onClick={() => {
                         if (item.hasSubmenu) {
                           setIsSettingsOpen(!isSettingsOpen);
@@ -82,7 +81,7 @@ export const Sidebar = ({ isCollapsed }: SidebarProps): JSX.Element => {
                       }}
                     >
                       <span
-                        className={`flex-1 text-left [font-family:'Inter',Helvetica] font-medium text-[14px] tracking-[0.17px] leading-5 whitespace-nowrap ${
+                        className={`flex-1 text-left [font-family:'Inter',Helvetica] font-medium text-[14px] tracking-[0] leading-5 whitespace-nowrap ${
                           item.active ? "text-[#1b1d23]" : "text-[#3d4350]"
                         }`}
                       >
