@@ -43,9 +43,9 @@ export const Sidebar = ({ isCollapsed }: SidebarProps): JSX.Element => {
       }`}
     >
       <div className="py-4 absolute left-0 top-0 w-[245px]">
-        <nav className="flex flex-col gap-5 pl-5 pr-5">
+        <nav className="flex flex-col pl-5 pr-5">
           {!isCollapsed && (
-            <div className="flex items-center gap-[12px] px-[10px] h-[36px]">
+            <div className="flex items-center gap-[12px] px-[10px] h-[36px] mb-5">
               <img src="/dashboard-icon.svg" alt="" className="w-[17px] h-[17px]" />
               <span className="[font-family:'Inter',Helvetica] font-medium text-[#3d4350] text-[14px] tracking-[0.17px] leading-5">
                 Dashboard
