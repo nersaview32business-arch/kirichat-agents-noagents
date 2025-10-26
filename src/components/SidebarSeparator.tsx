@@ -10,12 +10,17 @@ interface SidebarSeparatorProps {
 export const SidebarSeparator = ({ isCollapsed, onToggle }: SidebarSeparatorProps): JSX.Element => {
   const [isHovered, setIsHovered] = useState(false);
 
+  const handleClick = () => {
+    setIsHovered(false);
+    onToggle();
+  };
+
   return (
     <div
       className="flex w-5 h-full items-center justify-center relative group cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onClick={onToggle}
+      onClick={handleClick}
     >
       <div className={`w-[3px] h-5 bg-[#d9d9d9] rounded-[33554400px] transition-opacity duration-200 ${isHovered ? 'opacity-0' : 'opacity-100'}`} />
 
