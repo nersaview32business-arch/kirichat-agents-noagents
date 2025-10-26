@@ -49,7 +49,7 @@ export const Sidebar = ({ isCollapsed }: SidebarProps): JSX.Element => {
             {navigationItems.map((item, index) => (
               <React.Fragment key={index}>
                 <div className="relative h-[36px]">
-                  <div className="absolute left-0 top-0 w-[17px] h-[36px] flex items-center justify-center z-10">
+                  <div className="absolute left-[10px] top-0 w-[17px] h-[36px] flex items-center justify-center z-10">
                     {item.isCustomIcon ? (
                       <img src={item.icon as string} alt="" className="w-[17px] h-[17px]" />
                     ) : (
@@ -60,7 +60,7 @@ export const Sidebar = ({ isCollapsed }: SidebarProps): JSX.Element => {
                   {!isCollapsed && (
                     <Button
                       variant="ghost"
-                      className={`absolute left-0 top-0 w-full h-[36px] rounded-[8px] justify-start pl-[38px] pr-2.5 py-1 ${
+                      className={`absolute left-0 top-0 w-full h-[36px] rounded-[8px] justify-start pl-[39px] pr-2.5 py-1 ${
                         item.active ? "bg-white border border-[#cdcccc] shadow-none" : ""
                       }`}
                       style={item.active ? { borderWidth: '1px' } : undefined}
