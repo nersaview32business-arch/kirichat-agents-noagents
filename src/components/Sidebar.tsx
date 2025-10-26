@@ -24,7 +24,7 @@ const navigationItems = [
 
 const submenuItems = [
   { label: "Generals", active: false },
-  { label: "Team", active: true },
+  { label: "Team", active: false },
   { label: "Billings", active: false },
   { label: "Plan", active: false },
 ];
@@ -99,13 +99,9 @@ export const Sidebar = ({ isCollapsed }: SidebarProps): JSX.Element => {
                         <Button
                           key={subindex}
                           variant="ghost"
-                          className={`group w-full h-auto justify-start px-2.5 py-1.5 rounded-lg ${
-                            subitem.active ? "bg-[#f7f8f9]" : ""
-                          }`}
+                          className="group w-full h-auto justify-start px-2.5 py-1.5 rounded-lg hover:bg-transparent"
                         >
-                          <span className={`[font-family:'Inter',Helvetica] font-medium text-[14px] tracking-[0.17px] leading-5 transition-colors duration-200 ${
-                            subitem.active ? "text-[#1b1d23]" : "text-[#3d4350] group-hover:text-[#1b1d23]"
-                          }`}>
+                          <span className="[font-family:'Inter',Helvetica] font-medium text-[#3d4350] text-[14px] tracking-[0.17px] leading-5 transition-colors duration-200 group-hover:text-[#1b1d23]">
                             {subitem.label}
                           </span>
                         </Button>
