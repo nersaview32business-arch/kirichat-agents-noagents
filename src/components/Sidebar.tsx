@@ -42,7 +42,7 @@ export const Sidebar = ({ isCollapsed }: SidebarProps): JSX.Element => {
         isCollapsed ? "w-[60px]" : "w-[245px]"
       }`}
     >
-      <div className={`py-4 absolute left-0 top-0 transition-all duration-300 ${isCollapsed ? 'w-[60px]' : 'w-[245px]'}`}>
+      <div className="py-4 absolute left-0 top-0 w-[245px]">
         <nav className={`flex flex-col gap-2 ${isCollapsed ? 'px-0' : 'pl-5 pr-5'}`}>
           <div className={`flex items-center h-[36px] ${isCollapsed ? 'justify-center' : 'gap-[12px] px-[10px]'}`}>
             <img src="/dashboard-icon.svg" alt="" className="w-[17px] h-[17px]" />
