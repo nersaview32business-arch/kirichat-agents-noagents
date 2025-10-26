@@ -39,17 +39,17 @@ export const Sidebar = ({ isCollapsed }: SidebarProps): JSX.Element => {
   return (
     <aside
       className={`flex flex-col h-full bg-white border-r border-[#e0e2e7] transition-[width] duration-300 ease-in-out overflow-hidden relative ${
-        isCollapsed ? "w-[60px]" : "w-[220px]"
+        isCollapsed ? "w-[60px]" : "w-[230px]"
       }`}
     >
       <div className="py-4">
         <nav className="flex flex-col gap-2">
           <div className="relative h-[36px] mx-5">
-            <div className="absolute left-[2px] top-0 h-[36px] flex items-center">
+            <div className="absolute left-[10px] top-0 h-[36px] flex items-center">
               <img src="/dashboard-icon.svg" alt="" className="w-[17px] h-[17px]" />
             </div>
             {!isCollapsed && (
-              <div className="pl-[31px] h-[36px] flex items-center">
+              <div className="pl-[39px] h-[36px] flex items-center">
                 <span className="[font-family:'Inter',Helvetica] font-medium text-[#3d4350] text-[14px] tracking-[0.17px] leading-5">
                   Dashboard
                 </span>
@@ -60,7 +60,7 @@ export const Sidebar = ({ isCollapsed }: SidebarProps): JSX.Element => {
             {navigationItems.map((item, index) => (
               <React.Fragment key={index}>
                 <div className="relative h-[36px]">
-                  <div className="absolute left-[2px] top-0 h-[36px] flex items-center z-10">
+                  <div className="absolute left-[10px] top-0 h-[36px] flex items-center z-10 pointer-events-none">
                     {item.isCustomIcon ? (
                       <img src={item.icon as string} alt="" className="w-[17px] h-[17px]" />
                     ) : (
@@ -71,10 +71,9 @@ export const Sidebar = ({ isCollapsed }: SidebarProps): JSX.Element => {
                   {!isCollapsed && (
                     <Button
                       variant="ghost"
-                      className={`absolute left-0 top-0 w-full h-[36px] rounded-[8px] justify-start pl-[31px] pr-2.5 py-1 ${
-                        item.active ? "bg-white border border-[#E4E4E7] shadow-none" : ""
+                      className={`w-full h-[36px] rounded-[8px] justify-start pl-[39px] pr-2.5 py-1 ${
+                        item.active ? "bg-white border border-[#E4E4E7] shadow-[0px_1px_2px_0px_rgba(16,24,40,0.05)]" : ""
                       }`}
-                      style={item.active ? { borderWidth: '1px' } : undefined}
                       onClick={() => {
                         if (item.hasSubmenu) {
                           setIsSettingsOpen(!isSettingsOpen);
