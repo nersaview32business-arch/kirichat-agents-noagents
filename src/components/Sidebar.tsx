@@ -43,8 +43,8 @@ export const Sidebar = ({ isCollapsed }: SidebarProps): JSX.Element => {
       }`}
     >
       <div className="py-4 w-full overflow-hidden">
-        <nav className={`flex flex-col gap-2 ${isCollapsed ? 'px-0' : 'pl-5 pr-5'}`}>
-          <div className={`flex items-center h-[36px] ${isCollapsed ? 'justify-center w-[60px]' : 'gap-[12px] px-[10px]'}`}>
+        <nav className="flex flex-col gap-2 pl-5 pr-5">
+          <div className="flex items-center gap-[12px] px-[10px] h-[36px]">
             <img src="/dashboard-icon.svg" alt="" className="w-[17px] h-[17px]" />
             {!isCollapsed && (
               <span className="[font-family:'Inter',Helvetica] font-medium text-[#3d4350] text-[14px] tracking-[0.17px] leading-5">
@@ -55,53 +55,43 @@ export const Sidebar = ({ isCollapsed }: SidebarProps): JSX.Element => {
           <div className="flex flex-col gap-1">
             {navigationItems.map((item, index) => (
               <React.Fragment key={index}>
-                <div className={`relative h-[36px] ${isCollapsed ? 'flex items-center justify-center w-[60px]' : ''}`}>
-                  {isCollapsed ? (
-                    <div className="flex items-center justify-center">
-                      {item.isCustomIcon ? (
-                        <img src={item.icon as string} alt="" className="w-[17px] h-[17px]" />
-                      ) : (
-                        <item.icon className="w-[17px] h-[17px]" />
-                      )}
-                    </div>
-                  ) : (
-                    <>
-                      <div className="absolute left-[10px] top-0 w-[17px] h-[36px] flex items-center justify-center z-10">
-                        {item.isCustomIcon ? (
-                          <img src={item.icon as string} alt="" className="w-[17px] h-[17px]" />
-                        ) : (
-                          <item.icon className="w-[17px] h-[17px]" />
-                        )}
-                      </div>
+                <div className="relative h-[36px]">
+                  <div className="absolute left-[10px] top-0 w-[17px] h-[36px] flex items-center justify-center z-10">
+                    {item.isCustomIcon ? (
+                      <img src={item.icon as string} alt="" className="w-[17px] h-[17px]" />
+                    ) : (
+                      <item.icon className="w-[17px] h-[17px]" />
+                    )}
+                  </div>
 
-                      <Button
-                        variant="ghost"
-                        className={`absolute left-0 top-0 w-full h-[36px] rounded-[8px] justify-start pl-[39px] pr-2.5 py-1 ${
-                          item.active ? "bg-white border border-[#E4E4E7] shadow-none" : ""
+                  {!isCollapsed && (
+                    <Button
+                      variant="ghost"
+                      className={`absolute left-0 top-0 w-full h-[36px] rounded-[8px] justify-start pl-[39px] pr-2.5 py-1 ${
+                        item.active ? "bg-white border border-[#E4E4E7] shadow-none" : ""
+                      }`}
+                      style={item.active ? { borderWidth: '1px' } : undefined}
+                      onClick={() => {
+                        if (item.hasSubmenu) {
+                          setIsSettingsOpen(!isSettingsOpen);
+                        }
+                      }}
+                    >
+                      <span
+                        className={`flex-1 text-left [font-family:'Inter',Helvetica] font-medium text-[14px] tracking-[0.17px] leading-5 whitespace-nowrap ${
+                          item.active ? "text-[#1b1d23]" : "text-[#3d4350]"
                         }`}
-                        style={item.active ? { borderWidth: '1px' } : undefined}
-                        onClick={() => {
-                          if (item.hasSubmenu) {
-                            setIsSettingsOpen(!isSettingsOpen);
-                          }
-                        }}
                       >
-                        <span
-                          className={`flex-1 text-left [font-family:'Inter',Helvetica] font-medium text-[14px] tracking-[0.17px] leading-5 whitespace-nowrap ${
-                            item.active ? "text-[#1b1d23]" : "text-[#3d4350]"
+                        {item.label}
+                      </span>
+                      {item.hasSubmenu && (
+                        <ChevronDownIcon
+                          className={`w-[16px] h-[16px] transition-transform duration-200 ${
+                            isSettingsOpen ? "rotate-180" : ""
                           }`}
-                        >
-                          {item.label}
-                        </span>
-                        {item.hasSubmenu && (
-                          <ChevronDownIcon
-                            className={`w-[16px] h-[16px] transition-transform duration-200 ${
-                              isSettingsOpen ? "rotate-180" : ""
-                            }`}
-                          />
-                        )}
-                      </Button>
-                    </>
+                        />
+                      )}
+                    </Button>
                   )}
                 </div>
 
