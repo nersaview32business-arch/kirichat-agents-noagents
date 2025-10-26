@@ -44,13 +44,13 @@ export const Sidebar = ({ isCollapsed }: SidebarProps): JSX.Element => {
     >
       <div className="py-4">
         <nav className="flex flex-col gap-2">
-          <div className="relative h-[36px] mx-3">
+          <div className="relative h-[36px] mx-3 group cursor-pointer">
             <div className="absolute left-3 top-0 h-[36px] flex items-center">
               <img src="/dashboard-icon.svg" alt="" className="w-[17px] h-[17px]" />
             </div>
             {!isCollapsed && (
               <div className="pl-[38px] h-[36px] flex items-center">
-                <span className="[font-family:'Inter',Helvetica] font-medium text-[#3d4350] text-[14px] tracking-[0.17px] leading-5">
+                <span className="[font-family:'Inter',Helvetica] font-medium text-[#3d4350] text-[14px] tracking-[0.17px] leading-5 transition-colors duration-200 group-hover:text-[#1b1d23]">
                   Dashboard
                 </span>
               </div>
@@ -71,7 +71,7 @@ export const Sidebar = ({ isCollapsed }: SidebarProps): JSX.Element => {
                   {!isCollapsed && (
                     <Button
                       variant="ghost"
-                      className={`absolute left-0 top-0 w-full h-[36px] rounded-[10px] justify-start pl-[38px] pr-3 py-1 ${
+                      className={`group absolute left-0 top-0 w-full h-[36px] rounded-[10px] justify-start pl-[38px] pr-3 py-1 ${
                         item.active ? "bg-white border border-[#e5e7eb] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]" : ""
                       }`}
                       onClick={() => {
@@ -81,8 +81,8 @@ export const Sidebar = ({ isCollapsed }: SidebarProps): JSX.Element => {
                       }}
                     >
                       <span
-                        className={`flex-1 text-left [font-family:'Inter',Helvetica] font-medium text-[14px] tracking-[0] leading-5 whitespace-nowrap ${
-                          item.active ? "text-[#1b1d23]" : "text-[#3d4350]"
+                        className={`flex-1 text-left [font-family:'Inter',Helvetica] font-medium text-[14px] tracking-[0] leading-5 whitespace-nowrap transition-colors duration-200 ${
+                          item.active ? "text-[#1b1d23]" : "text-[#3d4350] group-hover:text-[#1b1d23]"
                         }`}
                       >
                         {item.label}
@@ -111,11 +111,13 @@ export const Sidebar = ({ isCollapsed }: SidebarProps): JSX.Element => {
                         <Button
                           key={subindex}
                           variant="ghost"
-                          className={`w-full h-auto justify-start px-2.5 py-1.5 rounded-lg ${
+                          className={`group w-full h-auto justify-start px-2.5 py-1.5 rounded-lg ${
                             subitem.active ? "bg-[#f7f8f9]" : ""
                           }`}
                         >
-                          <span className="[font-family:'Inter',Helvetica] font-medium text-[#3d4350] text-[14px] tracking-[0.17px] leading-5">
+                          <span className={`[font-family:'Inter',Helvetica] font-medium text-[14px] tracking-[0.17px] leading-5 transition-colors duration-200 ${
+                            subitem.active ? "text-[#1b1d23]" : "text-[#3d4350] group-hover:text-[#1b1d23]"
+                          }`}>
                             {subitem.label}
                           </span>
                         </Button>
