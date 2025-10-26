@@ -44,23 +44,23 @@ export const Sidebar = ({ isCollapsed }: SidebarProps): JSX.Element => {
     >
       <div className="py-4">
         <nav className="flex flex-col gap-2">
-          <div className="relative h-[36px] mx-5">
-            <div className="absolute left-[2px] top-0 h-[36px] flex items-center">
+          <div className="relative h-[36px] mx-3">
+            <div className="absolute left-3 top-0 h-[36px] flex items-center">
               <img src="/dashboard-icon.svg" alt="" className="w-[17px] h-[17px]" />
             </div>
             {!isCollapsed && (
-              <div className="pl-[31px] h-[36px] flex items-center">
+              <div className="pl-[38px] h-[36px] flex items-center">
                 <span className="[font-family:'Inter',Helvetica] font-medium text-[#3d4350] text-[14px] tracking-[0.17px] leading-5">
                   Dashboard
                 </span>
               </div>
             )}
           </div>
-          <div className="flex flex-col gap-1 mx-5">
+          <div className="flex flex-col gap-1 mx-3">
             {navigationItems.map((item, index) => (
               <React.Fragment key={index}>
                 <div className="relative h-[36px]">
-                  <div className="absolute left-[2px] top-0 h-[36px] flex items-center z-10">
+                  <div className="absolute left-3 top-0 h-[36px] flex items-center z-10">
                     {item.isCustomIcon ? (
                       <img src={item.icon as string} alt="" className="w-[17px] h-[17px]" />
                     ) : (
@@ -71,7 +71,7 @@ export const Sidebar = ({ isCollapsed }: SidebarProps): JSX.Element => {
                   {!isCollapsed && (
                     <Button
                       variant="ghost"
-                      className={`absolute left-0 top-0 w-full h-[36px] rounded-[10px] justify-start pl-[31px] pr-2.5 py-1 ${
+                      className={`absolute left-0 top-0 w-full h-[36px] rounded-[10px] justify-start pl-[38px] pr-3 py-1 ${
                         item.active ? "bg-white border border-[#e5e7eb] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]" : ""
                       }`}
                       onClick={() => {
