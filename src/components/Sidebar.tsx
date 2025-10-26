@@ -60,7 +60,7 @@ export const Sidebar = ({ isCollapsed }: SidebarProps): JSX.Element => {
                   {!isCollapsed && (
                     <Button
                       variant="ghost"
-                      className={`absolute left-0 top-0 w-full h-[36px] rounded-[8px] justify-start pl-[29px] pr-2.5 py-1 ${
+                      className={`absolute left-0 top-0 w-full h-[36px] rounded-[8px] justify-start pl-[38px] pr-2.5 py-1 ${
                         item.active ? "bg-white border border-[#cdcccc] shadow-none" : ""
                       }`}
                       style={item.active ? { borderWidth: '1px' } : undefined}
