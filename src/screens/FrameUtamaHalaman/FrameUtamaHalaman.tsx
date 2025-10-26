@@ -42,8 +42,8 @@ export const FrameUtamaHalaman = (): JSX.Element => {
     <div className="flex flex-col h-screen bg-white">
       <Topbar />
 
-      <div className="flex flex-1 overflow-hidden">
-        <div className="flex">
+      <div className="flex flex-1 overflow-hidden relative">
+        <div className="fixed left-0 top-[64px] bottom-0 flex z-10">
           <div
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
@@ -56,7 +56,7 @@ export const FrameUtamaHalaman = (): JSX.Element => {
           />
         </div>
 
-        <main className="flex flex-col flex-1 overflow-hidden">
+        <main className="flex flex-col flex-1 overflow-hidden ml-[60px]">
           <div className="flex flex-col p-5 bg-white">
             <h1 className="[font-family:'Inter',Helvetica] font-semibold text-[#1b1d23] text-[20px] tracking-[0] leading-[27px]">
               Agents
