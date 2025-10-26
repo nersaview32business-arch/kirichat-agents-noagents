@@ -45,12 +45,13 @@ export const FrameUtamaHalaman = (): JSX.Element => {
       <Topbar />
 
       <div className="flex flex-1 overflow-hidden">
-        <div
-          className="flex"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          <Sidebar isCollapsed={isCollapsed} />
+        <div className="flex">
+          <div
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <Sidebar isCollapsed={isCollapsed} />
+          </div>
           <SidebarSeparator
             isCollapsed={isCollapsed}
             onToggle={handleToggle}
