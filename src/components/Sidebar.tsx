@@ -11,7 +11,6 @@ import React, { useState } from "react";
 import { Button } from "./ui/button";
 
 const navigationItems = [
-  { icon: "/dashboard-icon.svg", label: "Dashboard", active: false, isCustomIcon: true },
   { icon: "/agents-icon.svg", label: "Agents", active: true, isCustomIcon: true },
   { icon: "/usage-icon.svg", label: "Usage", active: false, isCustomIcon: true },
   { icon: "/chat-log-icon.svg", label: "Chat Log", active: false, isCustomIcon: true },
@@ -45,6 +44,14 @@ export const Sidebar = ({ isCollapsed }: SidebarProps): JSX.Element => {
     >
       <div className="py-4 absolute left-0 top-0 w-[245px]">
         <nav className="flex flex-col gap-5 pl-5 pr-5">
+          {!isCollapsed && (
+            <div className="flex items-center gap-[12px] px-[10px] h-[36px]">
+              <img src="/dashboard-icon.svg" alt="" className="w-[17px] h-[17px]" />
+              <span className="[font-family:'Inter',Helvetica] font-medium text-[#3d4350] text-[14px] tracking-[0.17px] leading-5">
+                Dashboard
+              </span>
+            </div>
+          )}
           <div className="flex flex-col gap-1">
             {navigationItems.map((item, index) => (
               <React.Fragment key={index}>
