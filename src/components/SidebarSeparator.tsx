@@ -11,6 +11,7 @@ export const SidebarSeparator = ({ isCollapsed, onToggle }: SidebarSeparatorProp
   const [isHovered, setIsHovered] = useState(false);
 
   const handleClick = () => {
+    setIsHovered(false);
     onToggle();
   };
 
@@ -21,15 +22,15 @@ export const SidebarSeparator = ({ isCollapsed, onToggle }: SidebarSeparatorProp
       onMouseLeave={() => setIsHovered(false)}
       onClick={handleClick}
     >
-      <div className={`w-[3px] h-5 bg-[#d9d9d9] rounded-[33554400px] transition-opacity duration-200 ${isHovered || !isCollapsed ? 'opacity-0' : 'opacity-100'}`} />
+      <div className={`w-[3px] h-5 bg-[#d9d9d9] rounded-[33554400px] transition-opacity duration-200 ${isHovered ? 'opacity-0' : 'opacity-100'}`} />
 
       <Tooltip content={isCollapsed ? "Expand" : "Collapse"}>
-        <div className={`absolute z-10 w-8 h-8 bg-white rounded-full flex items-center justify-center transition-all duration-200 -top-2 -left-2 ${isHovered || !isCollapsed ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}>
+        <div className={`absolute z-10 w-8 h-8 bg-white rounded-full flex items-center justify-center transition-all duration-200 -top-2 -left-2 ${isHovered ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}>
 
           {isCollapsed ? (
-            <ChevronRightIcon className="w-[22px] h-[22px] text-[#e4e4e7]" strokeWidth={2.5} />
+            <ChevronRightIcon className="w-[22px] h-[22px] text-[#d4d4d8]" strokeWidth={2.5} />
           ) : (
-            <ChevronLeftIcon className="w-[22px] h-[22px] text-[#e4e4e7]" strokeWidth={2.5} />
+            <ChevronLeftIcon className="w-[22px] h-[22px] text-[#d4d4d8]" strokeWidth={2.5} />
           )}
         </div>
       </Tooltip>
