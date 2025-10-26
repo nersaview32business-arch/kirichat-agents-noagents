@@ -1,4 +1,4 @@
-import { PlusIcon } from "lucide-react";
+import { Plus as PlusIcon } from "lucide-react";
 import React, { useState, useRef } from "react";
 import { Button } from "../../components/ui/button";
 import { Topbar } from "../../components/Topbar";
