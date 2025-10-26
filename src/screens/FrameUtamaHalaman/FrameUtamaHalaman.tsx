@@ -56,7 +56,7 @@ export const FrameUtamaHalaman = (): JSX.Element => {
           />
         </div>
 
-        <main className="flex flex-col flex-1 overflow-hidden ml-[60px]">
+        <main className={`flex flex-col flex-1 overflow-hidden transition-all duration-300 ${isManualMode && !isCollapsed ? 'ml-[230px]' : 'ml-[60px]'}`}>
           <div className="flex flex-col p-5 bg-white">
             <h1 className="[font-family:'Inter',Helvetica] font-semibold text-[#1b1d23] text-[20px] tracking-[0] leading-[27px]">
               Agents
