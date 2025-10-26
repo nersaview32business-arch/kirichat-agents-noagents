@@ -105,7 +105,7 @@ export const Sidebar = ({ isCollapsed }: SidebarProps): JSX.Element => {
                             subitem.active ? "bg-[#f7f8f9]" : ""
                           }`}
                         >
-                          <span className="[font-family:'Inter',Helvetica] font-semibold text-[#5c5e64] text-[10px] tracking-[-0.20px] leading-[14px]">
+                          <span className="[font-family:'Inter',Helvetica] font-medium text-[#3d4350] text-[14px] tracking-[0.17px] leading-5">
                             {subitem.label}
                           </span>
                         </Button>
