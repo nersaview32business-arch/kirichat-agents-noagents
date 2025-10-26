@@ -104,7 +104,7 @@ export const Sidebar = ({ isCollapsed }: SidebarProps): JSX.Element => {
                     isSettingsOpen ? "max-h-[200px] opacity-100" : "max-h-0 opacity-0"
                   }`}
                 >
-                  <div className="flex gap-[19px] pt-1 pl-[14px]">
+                  <div className="flex gap-[19px] pt-1 pl-[17px]">
                     <div className="w-0.5 bg-[#d9d9d9]" />
                     <div className="flex flex-col gap-[2px] flex-1">
                       {submenuItems.map((subitem, subindex) => (
