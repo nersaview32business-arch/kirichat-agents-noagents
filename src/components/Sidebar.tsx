@@ -39,54 +39,53 @@ export const Sidebar = ({ isCollapsed }: SidebarProps): JSX.Element => {
 
   return (
     <aside
-      className={`flex flex-col h-full bg-white border-r border-[#e0e2e7] transition-[width] duration-300 ease-in-out overflow-hidden ${
+      className={`flex flex-col h-full px-5 py-4 bg-white border-r border-[#e0e2e7] transition-[width] duration-300 ease-in-out overflow-hidden ${
         isCollapsed ? "w-[70px]" : "w-[245px]"
       }`}
     >
-      <div className="px-5 py-4 w-[245px]">
-        <nav className="flex flex-col gap-5">
-          <div className="flex flex-col gap-1">
-            {navigationItems.map((item, index) => (
-              <React.Fragment key={index}>
-                <Button
-                  variant={item.active ? "outline" : "ghost"}
-                  className={`w-full h-[39px] gap-2.5 rounded-[10px] ${
-                    isCollapsed ? "justify-center px-2" : "justify-start px-3 py-1.5"
-                  } ${
-                    item.active ? "bg-white border-[#cdcccc]" : ""
-                  }`}
-                  onClick={() => {
-                    if (item.hasSubmenu && !isCollapsed) {
-                      setIsSettingsOpen(!isSettingsOpen);
-                    }
-                  }}
-                >
-                  <div className="w-[17px] h-[17px] flex items-center justify-center flex-shrink-0">
-                    {item.isCustomIcon ? (
-                      <img src={item.icon as string} alt="" className="w-[17px] h-[17px]" />
-                    ) : (
-                      <item.icon className="w-[17px] h-[17px]" />
-                    )}
-                  </div>
-                  {!isCollapsed && (
-                    <>
-                      <span
-                        className={`flex-1 text-left [font-family:'Inter',Helvetica] font-medium text-[14px] tracking-[0.17px] leading-5 whitespace-nowrap ${
-                          item.active ? "text-[#1b1d23]" : "text-[#3d4350]"
-                        }`}
-                      >
-                        {item.label}
-                      </span>
-                      {item.hasSubmenu && (
-                        <ChevronDownIcon
-                          className={`w-[17px] h-[17px] transition-transform duration-200 ${
-                            isSettingsOpen ? "rotate-180" : ""
-                          }`}
-                        />
-                      )}
-                    </>
+      <nav className="flex flex-col gap-5">
+        <div className="flex flex-col gap-1">
+          {navigationItems.map((item, index) => (
+            <React.Fragment key={index}>
+              <Button
+                variant={item.active ? "outline" : "ghost"}
+                className={`h-[39px] gap-2.5 rounded-[10px] ${
+                  isCollapsed ? "w-[30px] justify-center px-2" : "w-full justify-start px-3 py-1.5"
+                } ${
+                  item.active ? "bg-white border-[#cdcccc]" : ""
+                }`}
+                onClick={() => {
+                  if (item.hasSubmenu && !isCollapsed) {
+                    setIsSettingsOpen(!isSettingsOpen);
+                  }
+                }}
+              >
+                <div className="w-[17px] h-[17px] flex items-center justify-center flex-shrink-0">
+                  {item.isCustomIcon ? (
+                    <img src={item.icon as string} alt="" className="w-[17px] h-[17px]" />
+                  ) : (
+                    <item.icon className="w-[17px] h-[17px]" />
                   )}
-                </Button>
+                </div>
+                {!isCollapsed && (
+                  <>
+                    <span
+                      className={`flex-1 text-left [font-family:'Inter',Helvetica] font-medium text-[14px] tracking-[0.17px] leading-5 whitespace-nowrap ${
+                        item.active ? "text-[#1b1d23]" : "text-[#3d4350]"
+                      }`}
+                    >
+                      {item.label}
+                    </span>
+                    {item.hasSubmenu && (
+                      <ChevronDownIcon
+                        className={`w-[17px] h-[17px] transition-transform duration-200 ${
+                          isSettingsOpen ? "rotate-180" : ""
+                        }`}
+                      />
+                    )}
+                  </>
+                )}
+              </Button>
 
               {item.hasSubmenu && !isCollapsed && (
                 <div
@@ -118,7 +117,6 @@ export const Sidebar = ({ isCollapsed }: SidebarProps): JSX.Element => {
           ))}
         </div>
       </nav>
-      </div>
     </aside>
   );
 };
