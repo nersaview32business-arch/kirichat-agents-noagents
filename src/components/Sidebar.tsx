@@ -105,7 +105,7 @@ export const Sidebar = ({ isCollapsed }: SidebarProps): JSX.Element => {
                   }`}
                 >
                   <div className="flex gap-[19px] pt-1">
-                    <div className="w-0.5 bg-[#d9d9d9] ml-[12px]" />
+                    <div className="w-0.5 bg-[#d9d9d9] ml-[11.5px]" />
                     <div className="flex flex-col gap-[2px] flex-1">
                       {submenuItems.map((subitem, subindex) => (
                         <Button
