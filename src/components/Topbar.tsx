@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 
 export const Topbar = (): JSX.Element => {
   return (
-    <header className="flex items-center justify-between w-full h-[68px] px-4 py-2 bg-white border-b border-[#e0e2e7]">
+    <header className="flex items-center justify-between w-full h-[60px] px-4 py-2 bg-white border-b border-[#e0e2e7]">
       <div className="flex items-center gap-[42px]">
         <div className="flex items-center gap-3">
           <img
