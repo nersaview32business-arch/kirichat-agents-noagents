@@ -44,18 +44,6 @@ export const Sidebar = ({ isCollapsed }: SidebarProps): JSX.Element => {
     >
       <div className="py-4">
         <nav className="flex flex-col gap-2">
-          <div className="relative h-[36px] mx-3 group cursor-pointer">
-            <div className="absolute left-3 top-0 h-[36px] flex items-center">
-              <img src="/dashboard-icon.svg" alt="" className="w-[17px] h-[17px]" />
-            </div>
-            {!isCollapsed && (
-              <div className="pl-[38px] h-[36px] flex items-center">
-                <span className="[font-family:'Inter',Helvetica] font-medium text-[#3d4350] text-[14px] tracking-[0.17px] leading-5 transition-colors duration-200 group-hover:text-[#1b1d23]">
-                  Dashboard
-                </span>
-              </div>
-            )}
-          </div>
           <div className="flex flex-col gap-1 mx-3">
             {navigationItems.map((item, index) => (
               <React.Fragment key={index}>
