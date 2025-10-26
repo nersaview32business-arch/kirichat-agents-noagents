@@ -44,19 +44,26 @@ export const Sidebar = ({ isCollapsed }: SidebarProps): JSX.Element => {
     >
       <div className="py-4 w-full overflow-hidden">
         <nav className="flex flex-col gap-2 pl-5 pr-5">
-          <div className="flex items-center gap-[12px] px-[10px] h-[36px]">
-            <img src="/dashboard-icon.svg" alt="" className="w-[17px] h-[17px]" />
+          <div className="relative h-[36px]">
+            <div className="absolute left-[10px] top-0 w-[17px] h-[36px] flex items-center justify-center z-10">
+              <img src="/dashboard-icon.svg" alt="" className="w-[17px] h-[17px]" />
+            </div>
             {!isCollapsed && (
-              <span className="[font-family:'Inter',Helvetica] font-medium text-[#3d4350] text-[14px] tracking-[0.17px] leading-5">
-                Dashboard
-              </span>
+              <div className="flex items-center gap-[12px] px-[10px] h-[36px]">
+                <div className="w-[17px]" />
+                <span className="[font-family:'Inter',Helvetica] font-medium text-[#3d4350] text-[14px] tracking-[0.17px] leading-5">
+                  Dashboard
+                </span>
+              </div>
             )}
           </div>
           <div className="flex flex-col gap-1">
             {navigationItems.map((item, index) => (
               <React.Fragment key={index}>
                 <div className="relative h-[36px]">
-                  <div className="absolute left-[10px] top-0 w-[17px] h-[36px] flex items-center justify-center z-10">
+                  <div className={`absolute top-0 w-[17px] h-[36px] flex items-center justify-center z-10 ${
+                    isCollapsed ? "left-1/2 -translate-x-1/2" : "left-[10px]"
+                  }`}>
                     {item.isCustomIcon ? (
                       <img src={item.icon as string} alt="" className="w-[17px] h-[17px]" />
                     ) : (
