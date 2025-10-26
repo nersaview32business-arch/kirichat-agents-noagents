@@ -16,9 +16,7 @@ export const FrameUtamaHalaman = (): JSX.Element => {
     if (hoverTimeoutRef.current) {
       clearTimeout(hoverTimeoutRef.current);
     }
-    hoverTimeoutRef.current = setTimeout(() => {
-      setIsCollapsed(false);
-    }, 600);
+    setIsCollapsed(false);
   };
 
   const handleMouseLeave = () => {
