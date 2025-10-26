@@ -7,9 +7,12 @@ import { SidebarSeparator } from "../../components/SidebarSeparator";
 
 export const FrameUtamaHalaman = (): JSX.Element => {
   const [isCollapsed, setIsCollapsed] = useState(true);
+  const [isManualMode, setIsManualMode] = useState(false);
   const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleMouseEnter = () => {
+    if (isManualMode) return;
+
     if (hoverTimeoutRef.current) {
       clearTimeout(hoverTimeoutRef.current);
     }
@@ -19,10 +22,22 @@ export const FrameUtamaHalaman = (): JSX.Element => {
   };
 
   const handleMouseLeave = () => {
+    if (isManualMode) return;
+
     if (hoverTimeoutRef.current) {
       clearTimeout(hoverTimeoutRef.current);
     }
     setIsCollapsed(true);
+  };
+
+  const handleToggle = () => {
+    if (isManualMode && !isCollapsed) {
+      setIsManualMode(false);
+      setIsCollapsed(true);
+    } else {
+      setIsManualMode(true);
+      setIsCollapsed(false);
+    }
   };
 
   return (
@@ -39,7 +54,7 @@ export const FrameUtamaHalaman = (): JSX.Element => {
 
         <SidebarSeparator
           isCollapsed={isCollapsed}
-          onToggle={() => setIsCollapsed(!isCollapsed)}
+          onToggle={handleToggle}
         />
 
         <main className="flex flex-col flex-1 overflow-hidden">
