@@ -20,11 +20,11 @@ export const SidebarSeparator = ({ isCollapsed, onToggle }: SidebarSeparatorProp
       <div className={`w-[3px] h-5 bg-[#d9d9d9] rounded-[33554400px] transition-opacity duration-200 ${isHovered ? 'opacity-0' : 'opacity-100'}`} />
 
       <Tooltip content={isCollapsed ? "Expand" : "Collapse"}>
-        <div className={`absolute z-10 w-6 h-6 bg-[#f5f5f5] rounded-full flex items-center justify-center transition-all duration-200 ${isHovered ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}>
+        <div className={`absolute z-10 w-12 h-12 bg-white rounded-full flex items-center justify-center transition-all duration-200 ${isHovered ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}>
           {isCollapsed ? (
-            <ChevronRightIcon className="w-4 h-4 text-[#9ca3af]" />
+            <ChevronRightIcon className="w-8 h-8 text-[#9ca3af]" strokeWidth={3} />
           ) : (
-            <ChevronLeftIcon className="w-4 h-4 text-[#9ca3af]" />
+            <ChevronLeftIcon className="w-8 h-8 text-[#9ca3af]" strokeWidth={3} />
           )}
         </div>
       </Tooltip>
