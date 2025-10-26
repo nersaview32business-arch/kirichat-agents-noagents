@@ -72,7 +72,7 @@ export const Sidebar = ({ isCollapsed }: SidebarProps): JSX.Element => {
                     <Button
                       variant="ghost"
                       className={`absolute left-0 top-0 w-full h-[36px] rounded-[10px] justify-start pl-[31px] pr-2.5 py-1 ${
-                        item.active ? "bg-white border border-[#E5E7EB] shadow-sm" : ""
+                        item.active ? "bg-white border border-[#e5e7eb] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]" : ""
                       }`}
                       onClick={() => {
                         if (item.hasSubmenu) {
