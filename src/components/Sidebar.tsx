@@ -48,8 +48,8 @@ export const Sidebar = ({ isCollapsed }: SidebarProps): JSX.Element => {
           <div className="flex flex-col gap-1">
             {navigationItems.map((item, index) => (
               <React.Fragment key={index}>
-                <div className="relative h-[39px]">
-                  <div className="absolute left-0 top-0 w-[17px] h-[39px] flex items-center justify-center z-10">
+                <div className="relative h-[36px]">
+                  <div className="absolute left-0 top-0 w-[17px] h-[36px] flex items-center justify-center z-10">
                     {item.isCustomIcon ? (
                       <img src={item.icon as string} alt="" className="w-[17px] h-[17px]" />
                     ) : (
@@ -60,7 +60,7 @@ export const Sidebar = ({ isCollapsed }: SidebarProps): JSX.Element => {
                   {!isCollapsed && (
                     <Button
                       variant={item.active ? "outline" : "ghost"}
-                      className={`absolute left-0 top-0 w-full h-[39px] rounded-[10px] justify-start pl-[37px] pr-3 py-1.5 ${
+                      className={`absolute left-0 top-0 w-full h-[36px] rounded-[8px] justify-start pl-[29px] pr-2.5 py-1 ${
                         item.active ? "bg-white border-[#cdcccc]" : ""
                       }`}
                       onClick={() => {
@@ -78,7 +78,7 @@ export const Sidebar = ({ isCollapsed }: SidebarProps): JSX.Element => {
                       </span>
                       {item.hasSubmenu && (
                         <ChevronDownIcon
-                          className={`w-[17px] h-[17px] transition-transform duration-200 ${
+                          className={`w-[16px] h-[16px] transition-transform duration-200 ${
                             isSettingsOpen ? "rotate-180" : ""
                           }`}
                         />
