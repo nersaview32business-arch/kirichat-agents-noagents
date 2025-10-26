@@ -39,7 +39,7 @@ export const Sidebar = ({ isCollapsed }: SidebarProps): JSX.Element => {
   return (
     <aside
       className={`flex flex-col h-full bg-white border-r border-[#e0e2e7] transition-[width] duration-300 ease-in-out overflow-hidden relative ${
-        isCollapsed ? "w-[60px]" : "w-[220px]"
+        isCollapsed ? "w-[60px]" : "w-[230px]"
       }`}
     >
       <div className="py-4">
