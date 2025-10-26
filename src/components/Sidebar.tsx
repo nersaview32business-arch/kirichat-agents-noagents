@@ -43,48 +43,55 @@ export const Sidebar = ({ isCollapsed }: SidebarProps): JSX.Element => {
         isCollapsed ? "w-[70px]" : "w-[245px]"
       }`}
     >
-      <div className="py-4 absolute left-0 top-0 w-[245px]">
-        <nav className="flex flex-col gap-5 pl-5 pr-5">
+      <div className="py-4 pl-5 pr-5">
+        <nav className="flex flex-col gap-5">
           <div className="flex flex-col gap-1">
             {navigationItems.map((item, index) => (
               <React.Fragment key={index}>
-                <div className="relative h-[39px]">
-                  <div className="absolute left-0 top-0 w-[17px] h-[39px] flex items-center justify-center z-10">
-                    {item.isCustomIcon ? (
-                      <img src={item.icon as string} alt="" className="w-[17px] h-[17px]" />
-                    ) : (
-                      <item.icon className="w-[17px] h-[17px]" />
-                    )}
-                  </div>
-
-                  {!isCollapsed && (
-                    <Button
-                      variant={item.active ? "outline" : "ghost"}
-                      className={`absolute left-0 top-0 w-full h-[39px] rounded-[10px] justify-start pl-[37px] pr-3 py-1.5 ${
-                        item.active ? "bg-white border-[#cdcccc]" : ""
-                      }`}
-                      onClick={() => {
-                        if (item.hasSubmenu) {
-                          setIsSettingsOpen(!isSettingsOpen);
-                        }
-                      }}
-                    >
-                      <span
-                        className={`flex-1 text-left [font-family:'Inter',Helvetica] font-medium text-[14px] tracking-[0.17px] leading-5 whitespace-nowrap ${
-                          item.active ? "text-[#1b1d23]" : "text-[#3d4350]"
-                        }`}
-                      >
-                        {item.label}
-                      </span>
-                      {item.hasSubmenu && (
-                        <ChevronDownIcon
-                          className={`w-[17px] h-[17px] transition-transform duration-200 ${
-                            isSettingsOpen ? "rotate-180" : ""
-                          }`}
-                        />
+                <div className="relative">
+                  <Button
+                    variant={item.active ? "outline" : "ghost"}
+                    className={`h-[39px] rounded-[10px] ${
+                      isCollapsed
+                        ? "w-[30px] px-0 justify-center"
+                        : "w-full px-3 py-1.5 justify-start"
+                    } ${
+                      item.active ? "bg-white border-[#cdcccc]" : ""
+                    }`}
+                    onClick={() => {
+                      if (item.hasSubmenu && !isCollapsed) {
+                        setIsSettingsOpen(!isSettingsOpen);
+                      }
+                    }}
+                  >
+                    <div className={`flex items-center ${isCollapsed ? "justify-center w-full" : "gap-2.5 w-full"}`}>
+                      <div className="w-[17px] h-[17px] flex items-center justify-center flex-shrink-0">
+                        {item.isCustomIcon ? (
+                          <img src={item.icon as string} alt="" className="w-[17px] h-[17px]" />
+                        ) : (
+                          <item.icon className="w-[17px] h-[17px]" />
+                        )}
+                      </div>
+                      {!isCollapsed && (
+                        <>
+                          <span
+                            className={`flex-1 text-left [font-family:'Inter',Helvetica] font-medium text-[14px] tracking-[0.17px] leading-5 whitespace-nowrap ${
+                              item.active ? "text-[#1b1d23]" : "text-[#3d4350]"
+                            }`}
+                          >
+                            {item.label}
+                          </span>
+                          {item.hasSubmenu && (
+                            <ChevronDownIcon
+                              className={`w-[17px] h-[17px] transition-transform duration-200 ${
+                                isSettingsOpen ? "rotate-180" : ""
+                              }`}
+                            />
+                          )}
+                        </>
                       )}
-                    </Button>
-                  )}
+                    </div>
+                  </Button>
                 </div>
 
               {item.hasSubmenu && !isCollapsed && (
