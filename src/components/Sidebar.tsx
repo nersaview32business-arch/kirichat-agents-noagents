@@ -1,5 +1,3 @@
-'use client';
-
 import {
   BarChart3Icon,
   ChevronDownIcon,

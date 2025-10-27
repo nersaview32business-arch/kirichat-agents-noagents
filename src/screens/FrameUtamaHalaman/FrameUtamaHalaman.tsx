@@ -1,5 +1,3 @@
-'use client';
-
 import { Plus as PlusIcon } from "lucide-react";
 import React, { useState, useRef } from "react";
 import { Button } from "../../components/ui/button";
